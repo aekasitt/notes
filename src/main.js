@@ -1,0 +1,28 @@
+/* ~~/src/main.js */
+import { createApp } from 'vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import { createPinia } from 'pinia'
+import App from './App.vue'
+import './assets/main.css'
+
+/* routes */
+let router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: () => import('@/views/Home.vue'),
+    },
+    {
+      path: '/notebooks',
+      name: 'notebooks',
+      component: () => import('@/views/Notebook.vue'),
+    },
+  ],
+})
+
+/* stores */
+let pinia = createPinia()
+
+createApp(App).use(pinia).use(router).mount('#app')
