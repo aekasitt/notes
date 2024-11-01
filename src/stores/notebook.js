@@ -12,11 +12,11 @@ export const useNotebook = defineStore('notebook', () => {
   let toPyScript = notebook => {
     let scripts = notebook['cells'].map(cell => {
       if (cell.cell_type == 'code') {
-        return `<py-repl>\n${cell.source.join('')}\n</py-repl>`
+        return `\n${cell.source.join('')}\n`
       } else if (cell.cell_type == 'markdown') {
         return parse(cell.source.join(''))
       } else {
-        return marked.parse('```\n' + cell.source.join('') + '\n```')
+        return parse('```\n' + cell.source.join('') + '\n```')
       }
     })
     return scripts.join('\n')

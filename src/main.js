@@ -1,8 +1,8 @@
 /* ~~/src/main.js */
+import App from '@/App.vue'
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { createPinia } from 'pinia'
-import App from './App.vue'
 import './assets/main.css'
 
 /* routes */
